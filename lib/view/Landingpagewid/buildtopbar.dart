@@ -1,5 +1,15 @@
   import 'package:flutter/material.dart';
-  Widget buildTopBar() {
+
+  class TopBar extends StatefulWidget {
+  const TopBar({super.key});
+
+  @override
+  State<TopBar> createState() => _TopBarState();
+}
+
+class _TopBarState extends State<TopBar> {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: 40,
       // ignore: deprecated_member_use
@@ -19,9 +29,8 @@
       ),
     );
   }
-
-  
-  Widget buildTopBarItem(String text) {
+}
+Widget buildTopBarItem(String text) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(

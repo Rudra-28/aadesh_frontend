@@ -1,6 +1,10 @@
-import 'package:aadesh_frontend/view/widgets/buildmainnav.dart';
-import 'package:aadesh_frontend/view/widgets/buildtopbar.dart';
-import 'package:aadesh_frontend/view/widgets/herosection.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/buildmainnav.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/buildtopbar.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/categorytilessection.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/featuredproductscarousel.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/footer.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/herosection.dart';
+import 'package:aadesh_frontend/view/Landingpagewid/zodiacsignsection.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -50,13 +54,20 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               children: [
                 // Top Navigation Bar
-                buildTopBar(),
-
+                TopBar(),
                 // Main Navigation
                 buildMainNavigation(isMobile: isMobile),
 
                 // Hero Section
                 buildheroSection(isMobile: isMobile),
+
+                ZodiacSignsSection(),
+
+                CategoryTilesSection(),
+
+                FeaturedProductsCarousel(),
+
+                Footer(),
               ],
             ),
           ),
