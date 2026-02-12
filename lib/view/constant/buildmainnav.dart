@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
- 
+import 'package:go_router/go_router.dart';
 
  class buildMainNavigation extends StatefulWidget {
+  final Widget child;
   final dynamic isMobile;
  
-  const buildMainNavigation({super.key, required this.isMobile});
+  const buildMainNavigation({super.key, required this.isMobile, required this.child});
 
   @override
   State<buildMainNavigation> createState() => _buildMainNavigationState();
@@ -43,15 +44,13 @@ class _buildMainNavigationState extends State<buildMainNavigation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildNavItem('SHOP BY ZODIAC'),
+                  buildNavItem('SHOP BY ZODIAC', '/shopbyzodiac'),
                   const SizedBox(width: 40),
-                  buildNavItem('WEARABLES'),
+                  buildNavItem('WEARABLES', '/wearables'),
                   const SizedBox(width: 40),
-                  buildNavItem('ASTRO-HOME'),
+                  buildNavItem('ASTRO-HOME', '/astrohome'),
                   const SizedBox(width: 40),
-                  buildNavItem('CRYSTALS & STONES'),
-                  const SizedBox(width: 40),
-                  buildNavItem('BLOG'),
+                  buildNavItem('CRYSTALS & STONES', '/crystalstones'),
                 ],
               ),
             ),
@@ -101,14 +100,11 @@ class _buildMainNavigationState extends State<buildMainNavigation> {
       ),
     );
   }
-}
- 
-
-  Widget buildNavItem(String text) {
+   Widget buildNavItem(String text, String route) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () => context.go(route),
         child: Text(
           text,
           style: const TextStyle(
@@ -121,3 +117,7 @@ class _buildMainNavigationState extends State<buildMainNavigation> {
       ),
     );
   }
+}
+ 
+
+ 
